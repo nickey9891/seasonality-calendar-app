@@ -1,0 +1,158 @@
+/* Mobile calendar readability + tap-a-day ticker list */
+.day{
+  min-height:118px;
+  padding:6px 5px;
+  transition:transform .08s ease,background .08s ease,box-shadow .08s ease;
+}
+.day.hasSignals{
+  cursor:pointer;
+  background:#fff;
+}
+.day.hasSignals:active{
+  transform:scale(.98);
+  background:#f7fbfb;
+}
+.day.hasSignals .num{
+  font-weight:850;
+}
+.stock{
+  font-size:9.5px;
+  line-height:1.18;
+  padding:3px 0;
+  letter-spacing:-.15px;
+}
+.moreButton{
+  display:block;
+  width:100%;
+  border:0;
+  background:transparent;
+  text-align:left;
+  padding:3px 0;
+  cursor:pointer;
+  font-weight:800;
+}
+.tapHint{
+  margin-top:3px;
+  font-size:8px;
+  line-height:1;
+  color:#a1a6ad;
+  text-align:center;
+  font-weight:700;
+}
+.decision.watch{
+  background:#eef4fb;
+  color:#47739d;
+}
+
+.dayModalWrap{
+  position:fixed;
+  inset:0;
+  background:rgba(20,25,32,.48);
+  display:none;
+  align-items:flex-end;
+  justify-content:center;
+  z-index:60;
+  padding:14px;
+}
+.dayModalWrap.show{display:flex}
+.dayModal{
+  width:min(620px,100%);
+  max-height:88vh;
+  overflow:auto;
+  -webkit-overflow-scrolling:touch;
+  background:#fff;
+  border-radius:22px 22px 16px 16px;
+  box-shadow:0 20px 50px rgba(0,0,0,.25);
+  padding:18px;
+}
+.dayModalHead{
+  display:flex;
+  align-items:flex-start;
+  justify-content:space-between;
+  gap:12px;
+  margin-bottom:14px;
+}
+.dayModalHead h3{
+  margin:0;
+  font-size:22px;
+  line-height:1.12;
+}
+.dayModalSub{
+  color:var(--muted);
+  font-size:12px;
+  margin-top:5px;
+}
+.dayModalX{
+  width:36px;
+  height:36px;
+  flex:0 0 36px;
+  border:0;
+  border-radius:50%;
+  background:#f0f2f4;
+  color:#555c65;
+  font-size:24px;
+  line-height:1;
+  cursor:pointer;
+}
+.dayTickerList{
+  display:grid;
+  gap:9px;
+}
+.dayTickerRow{
+  width:100%;
+  border:1px solid var(--line);
+  background:#fff;
+  border-radius:14px;
+  padding:12px 12px;
+  display:grid;
+  grid-template-columns:minmax(0,1fr) auto;
+  align-items:center;
+  gap:10px;
+  text-align:left;
+  color:inherit;
+  cursor:pointer;
+}
+.dayTickerRow:active{
+  background:#f7f8fa;
+}
+.dayTickerLeft{min-width:0}
+.dayTickerName{
+  font-size:17px;
+  font-weight:850;
+  line-height:1.15;
+}
+.dayTickerName.up{color:var(--green)}
+.dayTickerName.down{color:var(--red)}
+.dayTickerMeta{
+  font-size:11px;
+  color:var(--muted);
+  margin-top:4px;
+  line-height:1.35;
+  white-space:normal;
+}
+.dayTickerRight{
+  display:flex;
+  align-items:center;
+  gap:6px;
+}
+.dayChevron{
+  font-size:24px;
+  color:#a1a6ad;
+  line-height:1;
+}
+.dayEmpty{
+  color:var(--muted);
+  text-align:center;
+  padding:24px 12px;
+  font-size:13px;
+}
+
+@media(min-width:430px){
+  .day{min-height:128px;padding:7px}
+  .stock{font-size:10.5px}
+  .tapHint{font-size:9px}
+}
+@media(min-width:600px){
+  .day{min-height:142px}
+  .stock{font-size:12px}
+}
